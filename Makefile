@@ -5,8 +5,8 @@ OBJS := parser.o main.o redsocks.o log.o direct.o ipcache.o autoproxy.o http-con
 CFLAGS +=-fPIC -O3 -DDISABLE_SHADOWSOCKS
 FEATURES += DISABLE_SHADOWSOCKS
 else
-OBJS := parser.o main.o redsocks.o log.o direct.o ipcache.o autoproxy.o encrypt.o shadowsocks.o http-connect.o \
-        socks4.o socks5.o http-relay.o base.o base64.o md5.o http-auth.o utils.o redudp.o socks5-udp.o shadowsocks-udp.o \
+OBJS := parser.o main.o redsocks.o log.o direct.o ipcache.o autoproxy.o http-connect.o \
+        socks4.o socks5.o http-relay.o base.o base64.o md5.o http-auth.o utils.o redudp.o socks5-udp.o \
         tcpdns.o gen/version.o
 CFLAGS +=-fPIC -O3
 endif
@@ -49,7 +49,7 @@ override CFLAGS += -DENABLE_HTTPS_PROXY
 override FEATURES += ENABLE_HTTPS_PROXY
 $(info Compile with HTTPS proxy enabled.)
 endif
-override LIBS += -lssl -lcrypto
+#override LIBS += -lssl -lcrypto
 override CFLAGS += -DUSE_CRYPTO_OPENSSL
 endif
 ifdef ENABLE_STATIC
